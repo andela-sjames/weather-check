@@ -1,0 +1,48 @@
+#home {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(252, 90, 44, 0.89);
+}
+
+
+.button {
+    background: #5cb85c;
+    color: #fff;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.title {
+    color: #fff;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    border-radius: 3px;
+    border: none;
+    padding: 5px;
+    margin-right: 10px
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
