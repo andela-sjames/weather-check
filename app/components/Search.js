@@ -1,4 +1,5 @@
-var React = require('react')
+var React = require('react');
+var Callapi = require('../weatherapi/Callapi');
 
 var Search = React.createClass({
 
@@ -15,7 +16,14 @@ var Search = React.createClass({
     },
 
     onSubmitCity: function () {
-        console.log(this.state.city)
+        var city = this.state.city
+        Callapi.getWeather(city)
+            .then(function (response) {
+                console.log(response.data);
+        })
+            .catch(function (response) {
+                console.log(response);
+        });
     },
 
     render: function(){
