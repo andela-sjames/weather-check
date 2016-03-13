@@ -1,7 +1,12 @@
 var React = require('react');
 var Callapi = require('../weatherapi/Callapi');
 
+
 var Search = React.createClass({
+
+    contextTypes: {
+        router: React.PropTypes.object.isRequired
+    },
 
     getInitialState: function() {
         return {
@@ -17,13 +22,13 @@ var Search = React.createClass({
 
     onSubmitCity: function () {
         var city = this.state.city
-        Callapi.getWeather(city)
-            .then(function (response) {
-                console.log(response.data);
+        this.context.router.push({
+            pathname: '/forecast/' + this.state.city,
+            state: {
+                city: this.state.city
+            }
         })
-            .catch(function (response) {
-                console.log(response);
-        });
+
     },
 
     render: function(){
