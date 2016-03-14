@@ -4,7 +4,8 @@ var Callapi = require('../weatherapi/Callapi')
 var utils = require('../weatherapi/utils');
 var getDate = utils.getDate;
 var convertTemp = utils.convertTemp;
-
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var styles = {
   container: {
@@ -43,9 +44,9 @@ function DayItem (props) {
     var date = getDate(props.day.dt);
     var icon = props.day.weather[0].icon;
     return (
-        <div style={styles.dayContainer}>
+        <div style={styles.dayContainer} onClick={this.onViewDetail}><Link to={{pathname: `/detail/${props.city}`, state: {ListItems:props} }}>
             <img style={styles.weather} src={'./app/images/weather-icons/' + icon + '.svg'} alt='Weather' />
-            <h2 style={styles.subheader}>{date}</h2>
+            <h2 style={styles.subheader}>{date}</h2></Link>
         </div>
         )
     }
@@ -56,7 +57,7 @@ function ForecastUI (props) {
             <h1 style={styles.header}>{props.city}</h1>
             <div style={styles.container}>
                 {props.forecast.list.map(function (listItem) {
-                    return <DayItem key={listItem.dt} day={listItem} />
+                    return <DayItem key={listItem.dt} day={listItem} city={props.city}/>
             })}
             </div>
         </div>
@@ -65,6 +66,7 @@ function ForecastUI (props) {
 
 
 var Forecast = React.createClass({
+
 
     getInitialState: function () {
         return {
@@ -78,7 +80,6 @@ var Forecast = React.createClass({
         var city = this.props.location.state.city;
         Callapi.getDaysForcast(city)
             .then(function (response) {
-                console.log(response.data)
                 this.setState({
                     isLoading: false,
                     api: response.data,
