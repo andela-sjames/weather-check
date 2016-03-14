@@ -1,5 +1,4 @@
 var React = require('react');
-var Callapi = require('../weatherapi/Callapi');
 
 
 var Search = React.createClass({

@@ -14,12 +14,6 @@ function getCity5DaysForcast(city) {
 var Callapi = {
     getWeather: function (city) {
         return getCityCurrentWeather(city)
-            .then(function (response) {
-                console.log(response.data);
-        })
-            .catch(function (response) {
-                console.warn(response.data);
-        });
     },
 
     getDaysForcast: function(city) {
