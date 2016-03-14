@@ -8,7 +8,7 @@ function getCityCurrentWeather(city) {
 }
 
 function getCity5DaysForcast(city) {
-    return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='+ city +'&type=accurate&APPID='+ _apiKey + '&cnt=5');
+    return axios.get('http://api.openweathermap.org/data/2.5/forecast/daily?q='+ city +'&type=accurate&APPID='+ _apiKey + '&cnt=6');
 }
 
 var Callapi = {
@@ -18,12 +18,6 @@ var Callapi = {
 
     getDaysForcast: function(city) {
         return getCity5DaysForcast(city)
-            .then(function (response) {
-                console.log(response.data);
-        })
-            .catch(function (response) {
-                console.warn(response.data);
-        });
     },
 };
 
