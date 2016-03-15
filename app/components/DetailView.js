@@ -3,6 +3,8 @@ var utils = require('../weatherapi/utils');
 require('../styles/styles.css')
 var getDate = utils.getDate;
 var convertTemp = utils.convertTemp;
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 
 function DetailPage (props) {
@@ -28,6 +30,13 @@ function DetailPage (props) {
                 <h3>Max Temp: {max} degrees</h3>
                 <h3>Humidity: {humidity}</h3>
             </div>
+
+            <div className='col-sm-12'>
+                <Link to={{pathname:`forecast/${props.value.city}`}}>
+                    <button type='button' className='btn btn-lg btn-success'>Go Back</button>
+                </Link>
+            </div>
+
         </div>
     )
 }
