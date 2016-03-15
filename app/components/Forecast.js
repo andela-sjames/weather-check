@@ -77,7 +77,8 @@ var Forecast = React.createClass({
     },
 
     componentDidMount: function () {
-        var city = this.props.location.state.city;
+
+        var city = this.props.routeParams.city ? this.props.routeParams.city: this.props.location.state.city
         Callapi.getDaysForcast(city)
             .then(function (response) {
                 this.setState({
