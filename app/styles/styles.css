@@ -47,3 +47,15 @@ input[type="text"] {
     justify-content: center;
     align-items: center;
 }
+
+#weather {
+    height: 140px;
+}
+
+#detailcontainer {
+    text-align: center;
+}
+
+#centercontainer {
+    align-items: center;
+}
