@@ -1,4 +1,3 @@
-var React = require('react');
 var axios = require('axios');
 
 var _apiKey = '286b45144a15ddda6cdc4c52f022166f';
